@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مفاجأة</title>
+    <meta name="description" content="عيد ميلاد سعيد يا ماري - مفاجأة خاصة لك">
+    <meta property="og:title" content="مفاجأة عيد ميلاد">
+    <meta property="og:description" content="رسالة خاصة ومفاجأة بمناسبة عيد ميلادك">
+    <meta property="og:image" content="https://i.postimg.cc/054xdCDT/mavuika-genshin-impact-hd-wallpaper-uhdpaper-com-218-5-c.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="مفاجأة عيد ميلاد">
+    <meta name="twitter:description" content="رسالة خاصة ومفاجأة بمناسبة عيد ميلادك">
+    <meta name="twitter:image" content="https://i.postimg.cc/054xdCDT/mavuika-genshin-impact-hd-wallpaper-uhdpaper-com-218-5-c.jpg">
+    <link rel="canonical" href="https://example.com/birthday">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💖</text></svg>">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -38,6 +48,21 @@
             line-height: 1.6;
             overflow-x: hidden;
             cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="10" fill="%23ff4d8d" opacity="0.7"/><circle cx="16" cy="16" r="5" fill="%23ffffff" opacity="0.8"/></svg>'), auto;
+        }
+
+        /* Skip to content link for accessibility */
+        .skip-to-content {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--accent-color);
+            color: white;
+            padding: 8px;
+            z-index: 100;
+            transition: top 0.3s;
+        }
+        .skip-to-content:focus {
+            top: 0;
         }
 
         .container {
@@ -125,6 +150,11 @@
             position: relative;
             overflow: hidden;
             box-shadow: 0 10px 25px rgba(255, 77, 141, 0.3);
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            min-width: 44px;
+            min-height: 44px;
         }
         .gate-button::before {
             content: '';
@@ -187,7 +217,8 @@
         }
 
         .loading-bar-container {
-            width: 350px;
+            width: 80%;
+            max-width: 350px;
             height: 12px;
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 50px;
@@ -240,6 +271,7 @@
             background: url('https://i.postimg.cc/054xdCDT/mavuika-genshin-impact-hd-wallpaper-uhdpaper-com-218-5-c.jpg') no-repeat center center/cover;
             will-change: transform;
             z-index: -2;
+            object-fit: cover;
         }
         .hero::after {
             content: '';
@@ -331,7 +363,8 @@
 
         .memory-image {
             flex: 1;
-            min-width: 350px;
+            min-width: 300px;
+            width: 100%;
             perspective: 1000px;
             position: relative;
         }
@@ -379,7 +412,7 @@
 
         .memory-text h2 {
             font-family: var(--font-cursive);
-            font-size: 3.5rem;
+            font-size: clamp(2rem, 4vw, 3.5rem);
             background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
             -webkit-background-clip: text;
             background-clip: text;
@@ -393,7 +426,7 @@
         }
 
         .memory-text p {
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 2vw, 1.2rem);
             opacity: 0;
             animation: fadeInUp 0.8s ease-out forwards;
             line-height: 1.8;
@@ -434,7 +467,7 @@
 
         .gallery-title {
             font-family: var(--font-cursive);
-            font-size: 4rem;
+            font-size: clamp(2.5rem, 5vw, 4rem);
             background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
             -webkit-background-clip: text;
             background-clip: text;
@@ -444,7 +477,7 @@
         }
 
         .gallery-subtitle {
-            font-size: 1.3rem;
+            font-size: clamp(1rem, 2vw, 1.3rem);
             color: var(--text-color);
             max-width: 800px;
             margin: 0 auto 60px;
@@ -486,6 +519,8 @@
             backface-visibility: hidden;
             transform-style: preserve-3d;
             background: var(--card-bg);
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .gallery-item::before {
@@ -599,6 +634,11 @@
             box-shadow: 0 10px 25px rgba(255, 77, 141, 0.3);
             position: relative;
             overflow: hidden;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            min-width: 44px;
+            min-height: 44px;
         }
 
         .gallery-btn::before {
@@ -642,6 +682,13 @@
             cursor: pointer;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+            min-width: 44px;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .indicator::before {
@@ -693,7 +740,7 @@
         }
         .birthday-message-section h2 {
             font-family: var(--font-cursive);
-            font-size: 4rem;
+            font-size: clamp(2.5rem, 5vw, 4rem);
             background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
             -webkit-background-clip: text;
             background-clip: text;
@@ -703,7 +750,7 @@
             z-index: 1;
         }
         .birthday-message-section p {
-            font-size: 1.4rem;
+            font-size: clamp(1rem, 2vw, 1.4rem);
             max-width: 900px;
             margin: 0 auto;
             line-height: 2;
@@ -801,13 +848,18 @@
             cursor: pointer;
             transition: all 0.3s ease;
             background: linear-gradient(135deg, var(--accent-color), var(--accent-dark));
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
             box-shadow: 0 10px 25px rgba(255, 77, 141, 0.3);
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            min-width: 44px;
+            min-height: 44px;
         }
 
         .modal-close:hover {
@@ -816,6 +868,15 @@
         }
 
         /* --- Responsive Design --- */
+        @media (max-width: 1024px) {
+            .gallery-container {
+                height: 550px;
+            }
+            .memory-content {
+                gap: 40px;
+            }
+        }
+
         @media (max-width: 768px) {
             .gate-title { font-size: 2.5rem; }
             .surprise-text { font-size: 2.5rem; }
@@ -873,6 +934,70 @@
                 height: 50px;
             }
         }
+
+        @media (max-width: 480px) {
+            .loading-bar-container { 
+                width: 80%; 
+                max-width: 300px; 
+            }
+            .gallery-container { 
+                height: 350px; 
+            }
+            .gallery-item { 
+                width: 280px; 
+                height: 350px; 
+                margin-left: -140px;
+                margin-top: -175px;
+            }
+            .memory-image { 
+                min-width: 100%; 
+            }
+            .container { 
+                padding: 40px 15px; 
+            }
+            .memory-content {
+                gap: 30px;
+            }
+            .memory-text p {
+                font-size: 1rem;
+            }
+            .gallery-title {
+                font-size: 2.5rem;
+            }
+            .gallery-subtitle {
+                font-size: 1rem;
+            }
+            .birthday-message-section {
+                padding: 80px 15px;
+            }
+            .birthday-message-section p {
+                font-size: 1rem;
+            }
+        }
+
+        /* Mobile touch optimizations */
+        @media (hover: none) {
+            body { cursor: auto !important; }
+            .hero::before { transform: none !important; }
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Focus visible for accessibility */
+        .gate-button:focus-visible,
+        .gallery-btn:focus-visible,
+        .indicator:focus-visible,
+        .modal-close:focus-visible {
+            outline: 3px solid var(--accent-color);
+            outline-offset: 4px;
+        }
     </style>
 </head>
 <body>
@@ -885,7 +1010,7 @@
     <!-- === STEALTH CLICK GATE === -->
     <div id="click-gate">
         <h1 class="gate-title">دوسي علي الزرار</h1>
-        <button class="gate-button" id="surprise-button">مفاجأة</button>
+        <button class="gate-button" id="surprise-button" aria-label="Open surprise">مفاجأة</button>
     </div>
 
     <!-- === SURPRISE SPLASH SCREEN === -->
@@ -912,7 +1037,10 @@
                 <div class="container">
                     <div class="memory-content">
                         <div class="memory-image">
-                            <img src="https://i.postimg.cc/dV7ryfgf/20250305161816.png" alt="Memory 1">
+                            <picture>
+                                <source srcset="https://i.postimg.cc/dV7ryfgf/20250305161816.webp" type="image/webp">
+                                <img src="https://i.postimg.cc/dV7ryfgf/20250305161816.png" alt="Memory 1 - أول صورة لينا في اللعبة" loading="lazy">
+                            </picture>
                         </div>
                         <div class="memory-text">
                             <h2>ياااه فاكره الصوره دي</h2>
@@ -928,7 +1056,10 @@
                 <div class="container">
                     <div class="memory-content">
                         <div class="memory-image">
-                            <img src="https://i.postimg.cc/8zqWBHSr/20250307020627.png" alt="Memory 2">
+                            <picture>
+                                <source srcset="https://i.postimg.cc/8zqWBHSr/20250307020627.webp" type="image/webp">
+                                <img src="https://i.postimg.cc/8zqWBHSr/20250307020627.png" alt="Memory 2 - بعد مكسبتي فورينا" loading="lazy">
+                            </picture>
                         </div>
                         <div class="memory-text">
                             <h2>لما كسبتي فورينا</h2>
@@ -943,7 +1074,10 @@
                 <div class="container">
                     <div class="memory-content">
                         <div class="memory-image">
-                            <img src="https://i.postimg.cc/Gtsn1KVF/give-you-my-power.png" alt="Memory 3">
+                            <picture>
+                                <source srcset="https://i.postimg.cc/Gtsn1KVF/give-you-my-power.webp" type="image/webp">
+                                <img src="https://i.postimg.cc/Gtsn1KVF/give-you-my-power.png" alt="Memory 3 - كل القوه بتعتك نسبيا" loading="lazy">
+                            </picture>
                         </div>
                         <div class="memory-text">
                             <h2>الأيام الحلوه</h2>
@@ -962,7 +1096,10 @@
                     <div class="gallery-container">
                         <div class="gallery-3d" id="gallery-3d">
                             <div class="gallery-item gallery-item-1 active">
-                                <img src="https://i.postimg.cc/g0Yp6vLb/help-me-to-stay-calm-in-other-games.png" alt="Memory 4">
+                                <picture>
+                                    <source srcset="https://i.postimg.cc/g0Yp6vLb/help-me-to-stay-calm-in-other-games.webp" type="image/webp">
+                                    <img src="https://i.postimg.cc/g0Yp6vLb/help-me-to-stay-calm-in-other-games.png" alt="Memory 4 - خلتيني مبقاش توكسيك" loading="lazy">
+                                </picture>
                                 <div class="gallery-overlay">
                                     <h3 class="gallery-title-text">قدمتي مساعده!</h3>
                                     <p class="gallery-description">خلتيني مبقاش توكسيك ومشتمش حتي شوفي🤣🤣</p>
@@ -970,7 +1107,10 @@
                             </div>
                             
                             <div class="gallery-item gallery-item-2">
-                                <img src="https://i.postimg.cc/pybbV8tn/no-clue-XD.png" alt="Memory 5">
+                                <picture>
+                                    <source srcset="https://i.postimg.cc/pybbV8tn/no-clue-XD.webp" type="image/webp">
+                                    <img src="https://i.postimg.cc/pybbV8tn/no-clue-XD.png" alt="Memory 5 - العبث الي بدون سبب" loading="lazy">
+                                </picture>
                                 <div class="gallery-overlay">
                                     <h3 class="gallery-title-text">العبث الي بدون سبب</h3>
                                     <p class="gallery-description">و هنا تقدري تشوفي قد ايه النت جميل عندنا في مصر</p>
@@ -978,7 +1118,10 @@
                             </div>
                             
                             <div class="gallery-item gallery-item-3">
-                                <img src="https://i.postimg.cc/52510Py4/special-chest.png" alt="Memory 6">
+                                <picture>
+                                    <source srcset="https://i.postimg.cc/52510Py4/special-chest.webp" type="image/webp">
+                                    <img src="https://i.postimg.cc/52510Py4/special-chest.png" alt="Memory 6 - صندوق مخفي" loading="lazy">
+                                </picture>
                                 <div class="gallery-overlay">
                                     <h3 class="gallery-title-text">صندوق مخفي</h3>
                                     <p class="gallery-description">هنا خدنا الصوره دي بعد مجبناالصندوق المخفي و فاريسا طارت فووق 🤣🤣</p>
@@ -986,7 +1129,10 @@
                             </div>
                             
                             <div class="gallery-item gallery-item-4">
-                                <img src="https://i.postimg.cc/cC8GNh2z/what-are-you-doing-xd.png" alt="Memory 7">
+                                <picture>
+                                    <source srcset="https://i.postimg.cc/cC8GNh2z/what-are-you-doing-xd.webp" type="image/webp">
+                                    <img src="https://i.postimg.cc/cC8GNh2z/what-are-you-doing-xd.png" alt="Memory 7 - عبثيات برو مكس" loading="lazy">
+                                </picture>
                                 <div class="gallery-overlay">
                                     <h3 class="gallery-title-text">عبثيات برو مكس</h3>
                                     <p class="gallery-description">مالك يا بنتي في ايه! ايه ده؟ 💀</p>
@@ -994,7 +1140,10 @@
                             </div>
                             
                             <div class="gallery-item gallery-item-5">
-                                <img src="https://i.postimg.cc/ht8gjCvP/win-mavuika.png" alt="Memory 8">
+                                <picture>
+                                    <source srcset="https://i.postimg.cc/ht8gjCvP/win-mavuika.webp" type="image/webp">
+                                    <img src="https://i.postimg.cc/ht8gjCvP/win-mavuika.png" alt="Memory 8 - لحظه النصر" loading="lazy">
+                                </picture>
                                 <div class="gallery-overlay">
                                     <h3 class="gallery-title-text">لحظه النصر</h3>
                                     <p class="gallery-description">هنا لما كسبتي مافويكا بعد تفريم كتير والحمدلله كسبتيها</p>
@@ -1002,7 +1151,10 @@
                             </div>
                             
                             <div class="gallery-item gallery-item-6">
-                                <img src="https://i.postimg.cc/130PtWtd/you-were-soo-noob-that-039-s-why-i-had-to-upgrade-the-world-XD-jsk.png" alt="Memory 9">
+                                <picture>
+                                    <source srcset="https://i.postimg.cc/130PtWtd/you-were-soo-noob-that-039-s-why-i-had-to-upgrade-the-world-XD-jsk.webp" type="image/webp">
+                                    <img src="https://i.postimg.cc/130PtWtd/you-were-soo-noob-that-039-s-why-i-had-to-upgrade-the-world-XD-jsk.png" alt="Memory 9 - نووب" loading="lazy">
+                                </picture>
                                 <div class="gallery-overlay">
                                     <h3 class="gallery-title-text">نووب</h3>
                                     <p class="gallery-description">هنا كنت بعلي ليفل العالم عشان انت نووب 🤣🤣</p>
@@ -1011,17 +1163,17 @@
                         </div>
                         
                         <div class="gallery-controls">
-                            <button class="gallery-btn" id="prev-btn"><i class="fas fa-chevron-right"></i></button>
-                            <button class="gallery-btn" id="next-btn"><i class="fas fa-chevron-left"></i></button>
+                            <button class="gallery-btn" id="prev-btn" aria-label="Previous image"><i class="fas fa-chevron-right"></i></button>
+                            <button class="gallery-btn" id="next-btn" aria-label="Next image"><i class="fas fa-chevron-left"></i></button>
                         </div>
                         
                         <div class="gallery-indicators">
-                            <div class="indicator active" data-slide="0"></div>
-                            <div class="indicator" data-slide="1"></div>
-                            <div class="indicator" data-slide="2"></div>
-                            <div class="indicator" data-slide="3"></div>
-                            <div class="indicator" data-slide="4"></div>
-                            <div class="indicator" data-slide="5"></div>
+                            <div class="indicator active" data-slide="0" role="button" aria-label="Go to slide 1" tabindex="0"></div>
+                            <div class="indicator" data-slide="1" role="button" aria-label="Go to slide 2" tabindex="0"></div>
+                            <div class="indicator" data-slide="2" role="button" aria-label="Go to slide 3" tabindex="0"></div>
+                            <div class="indicator" data-slide="3" role="button" aria-label="Go to slide 4" tabindex="0"></div>
+                            <div class="indicator" data-slide="4" role="button" aria-label="Go to slide 5" tabindex="0"></div>
+                            <div class="indicator" data-slide="5" role="button" aria-label="Go to slide 6" tabindex="0"></div>
                         </div>
                     </div>
                 </div>
@@ -1030,8 +1182,7 @@
             <!-- BIRTHDAY MESSAGE SECTION -->
             <section class="birthday-message-section">
                 <div class="container">
-                    <h2>كل سنة وإنتِ طيبة يا قمر.
-</h2>
+                    <h2>كل سنة وإنتِ طيبة يا قمر.</h2>
                     <p>
 حقيقي إنتِ من أجمل الناس اللي اتعاملت معاهم، وشخصيتك الطيبة كانت دايمًا سبب إنّي أتعلم منك وأتشجع في حاجات كتير. الفترة اللي فاتت مكنتش بس بشرحلك اللعبة، أنا كمان كنت مستفيد من طريقتك الجميلة في التعامل.
 
@@ -1048,9 +1199,9 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal" id="image-modal">
+    <div class="modal" id="image-modal" role="dialog" aria-modal="true" aria-labelledby="modal-image-title">
         <div class="modal-content">
-            <span class="modal-close" id="modal-close">&times;</span>
+            <span class="modal-close" id="modal-close" role="button" aria-label="Close modal">&times;</span>
             <img src="" alt="Enlarged view" class="modal-image" id="modal-image">
         </div>
     </div>
@@ -1086,6 +1237,11 @@
             const modalImage = document.getElementById('modal-image');
             const modalClose = document.getElementById('modal-close');
 
+            // --- DEVICE DETECTION ---
+            const isMobile = window.matchMedia('(max-width: 768px)').matches;
+            const isHoverDevice = window.matchMedia('(hover: hover)').matches;
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
             // --- CONFETTI FUNCTIONS ---
             const defaults = { spread: 360, ticks: 80, gravity: 1, decay: 0.94, startVelocity: 30, colors: ['#ff4d8d', '#ffb700', '#ff8fbd', '#d63384', '#ffc107'] };
             
@@ -1093,13 +1249,17 @@
             let fountainInterval;
 
             function massiveConfettiBurst() {
-                function shoot(left, angle, particleCount = 150) {
-                    confetti({ ...defaults, particleCount, origin: { x: left, y: 0.7 }, angle });
+                // Reduce particle count on mobile
+                const particleCount = isMobile ? 80 : 150;
+                function shoot(left, angle, count = particleCount) {
+                    confetti({ ...defaults, particleCount: count, origin: { x: left, y: 0.7 }, angle });
                 }
                 shoot(0.1, 60); shoot(0.3, 45); shoot(0.5, 90); shoot(0.7, 135); shoot(0.9, 120);
             }
             
             function startConfettiRain(intensity = 3) {
+                // Reduce intensity on mobile
+                if (isMobile) intensity = Math.max(1, intensity - 1);
                 autoRainInterval = setInterval(() => {
                     confetti({ ...defaults, particleCount: intensity, origin: { x: Math.random(), y: 0 }, angle: 90 });
                 }, 250);
@@ -1110,7 +1270,8 @@
             }
             
             function confettiFountain() {
-                const count = 250;
+                // Reduce particle count on mobile
+                const count = isMobile ? 150 : 250;
                 const defaults = { origin: { y: 0.7 } };
                 function fire(particleRatio, opts) {
                     confetti(Object.assign({}, defaults, opts, { particleCount: Math.floor(count * particleRatio) }));
@@ -1123,10 +1284,24 @@
             }
 
             // --- PARALLAX EFFECT ---
-            window.addEventListener('scroll', () => {
-                const scrolled = window.pageYOffset;
-                heroSection.style.transform = `translateY(${scrolled * 0.5}px)`;
-            });
+            // Disable parallax on mobile or if reduced motion is preferred
+            if (isHoverDevice && !prefersReducedMotion) {
+                let ticking = false;
+                function updateParallax() {
+                    const scrolled = window.pageYOffset;
+                    heroSection.style.transform = `translate3d(0, ${scrolled * 0.5}px, 0)`;
+                    ticking = false;
+                }
+                
+                function requestTick() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(updateParallax);
+                        ticking = true;
+                    }
+                }
+                
+                window.addEventListener('scroll', requestTick);
+            }
 
             // --- TYPING EFFECT WITH CURSOR ---
             function typeText(element, text, speed = 50, callback) {
@@ -1168,9 +1343,10 @@
             // --- GALLERY FUNCTIONS ---
             function updateGalleryPositions() {
                 const items = document.querySelectorAll('.gallery-item');
+                const translateZ = window.innerWidth <= 768 ? 250 : 450;
+                
                 items.forEach((item, index) => {
                     const angle = (index * 60) + rotationY;
-                    const translateZ = window.innerWidth <= 768 ? 250 : 450;
                     item.style.transform = `rotateY(${angle}deg) translateZ(${translateZ}px)`;
                     
                     // Add active class to item closest to front
@@ -1253,21 +1429,27 @@
             // Touch support for mobile
             let touchStartX = 0;
             let touchEndX = 0;
+            let touchStartY = 0;
+            let touchEndY = 0;
             
             gallery3d.addEventListener('touchstart', (e) => {
                 touchStartX = e.changedTouches[0].screenX;
+                touchStartY = e.changedTouches[0].screenY;
             });
             
             gallery3d.addEventListener('touchend', (e) => {
                 touchEndX = e.changedTouches[0].screenX;
+                touchEndY = e.changedTouches[0].screenY;
                 handleSwipe();
             });
             
             function handleSwipe() {
-                if (touchEndX < touchStartX - 50) {
+                // Increased threshold for mobile
+                const threshold = window.innerWidth <= 480 ? 70 : 50;
+                if (touchEndX < touchStartX - threshold) {
                     rotateGallery('next');
                 }
-                if (touchEndX > touchStartX + 50) {
+                if (touchEndX > touchStartX + threshold) {
                     rotateGallery('prev');
                 }
             }
@@ -1302,9 +1484,80 @@
                 }
             });
             
-            // Handle window resize
+            // Handle window resize with debounce
+            let resizeTimeout;
             window.addEventListener('resize', () => {
-                updateGalleryPositions();
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    updateGalleryPositions();
+                }, 100);
+            });
+
+            // --- KEYBOARD NAVIGATION ---
+            document.addEventListener('keydown', (e) => {
+                // Gallery navigation
+                if (e.key === 'ArrowLeft') {
+                    rotateGallery('prev');
+                } else if (e.key === 'ArrowRight') {
+                    rotateGallery('next');
+                }
+                
+                // Close modal with Escape key
+                if (e.key === 'Escape' && modal.classList.contains('show')) {
+                    modal.classList.remove('show');
+                    setTimeout(() => {
+                        modal.style.display = 'none';
+                    }, 500);
+                }
+            });
+
+            // --- SWIPE DOWN TO CLOSE MODAL ---
+            let modalTouchStartY = 0;
+            let modalTouchEndY = 0;
+            
+            modal.addEventListener('touchstart', (e) => {
+                modalTouchStartY = e.changedTouches[0].screenY;
+            });
+            
+            modal.addEventListener('touchend', (e) => {
+                modalTouchEndY = e.changedTouches[0].screenY;
+                if (modalTouchEndY - modalTouchStartY > 100) {
+                    modal.classList.remove('show');
+                    setTimeout(() => {
+                        modal.style.display = 'none';
+                    }, 500);
+                }
+            });
+
+            // --- PREVENT BODY SCROLL WHEN MODAL IS OPEN ---
+            function preventBodyScroll() {
+                document.body.style.overflow = 'hidden';
+            }
+            
+            function enableBodyScroll() {
+                document.body.style.overflow = '';
+            }
+            
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal || e.target === modalClose) {
+                    modal.classList.remove('show');
+                    setTimeout(() => {
+                        modal.style.display = 'none';
+                        enableBodyScroll();
+                    }, 500);
+                }
+            });
+            
+            galleryItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const imgSrc = this.querySelector('img').src;
+                    modalImage.src = imgSrc;
+                    modal.style.display = 'flex';
+                    preventBodyScroll();
+                    setTimeout(() => {
+                        modal.classList.add('show');
+                    }, 10);
+                });
             });
 
             // --- MAIN CINEMATIC SEQUENCE (Triggered by Click) ---
